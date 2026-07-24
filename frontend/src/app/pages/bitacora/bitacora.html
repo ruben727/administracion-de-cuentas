@@ -1,0 +1,33 @@
+<h1>Bitacora de administracion</h1>
+<p>Historial de acciones administrativas realizadas sobre las cuentas de usuario.</p>
+
+<div class="panel">
+  @if (cargando()) {
+    <p>Cargando bitacora...</p>
+  } @else {
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Usuario</th>
+          <th>Accion</th>
+          <th>Detalle</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (entrada of entradas(); track entrada.id) {
+          <tr>
+            <td>{{ entrada.fecha | date: 'medium' }}</td>
+            <td>{{ entrada.username || 'N/A' }}</td>
+            <td>{{ entrada.accion }}</td>
+            <td>{{ entrada.detalle }}</td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="4">Todavia no hay entradas en la bitacora.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

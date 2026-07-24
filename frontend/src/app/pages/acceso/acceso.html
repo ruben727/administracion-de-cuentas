@@ -1,0 +1,28 @@
+<h1>Simulador de inicio de sesion</h1>
+<p>Permite comprobar el comportamiento del sistema al iniciar sesion con una cuenta habilitada o deshabilitada.</p>
+
+<div class="panel panel-angosto">
+  <form (ngSubmit)="intentarAcceso()">
+    <div class="campo">
+      <label for="username">Nombre de usuario</label>
+      <input id="username" name="username" type="text" [(ngModel)]="username" required />
+    </div>
+    <div class="campo">
+      <label for="password">Contrasena</label>
+      <input id="password" name="password" type="password" [(ngModel)]="password" required />
+    </div>
+    <button type="submit" [disabled]="enviando()">
+      {{ enviando() ? 'Verificando...' : 'Iniciar sesion' }}
+    </button>
+  </form>
+
+  @if (resultado(); as r) {
+    <div class="resultado-acceso" [class.exito]="r.acceso" [class.error]="!r.acceso">
+      <p class="titulo-resultado">{{ r.acceso ? 'Acceso concedido' : 'Acceso rechazado' }}</p>
+      <p>{{ r.motivo }}</p>
+      @if (r.acceso && r.requiere_cambio_password) {
+        <p>El sistema indica que esta cuenta requiere cambio de contrasena en el proximo inicio de sesion.</p>
+      }
+    </div>
+  }
+</div>

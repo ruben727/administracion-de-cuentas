@@ -1,0 +1,30 @@
+.fila-titulo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.fila-titulo h2 {
+  margin: 0;
+}
+
+.ficha {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  row-gap: 12px;
+  column-gap: 10px;
+}
+
+.ficha dt {
+  font-weight: 600;
+  color: var(--color-secundario);
+}
+
+.ficha dd {
+  margin: 0;
+}
+
+.acciones-detalle {
+  margin-top: 22px;
+}

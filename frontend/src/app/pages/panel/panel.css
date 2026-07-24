@@ -1,0 +1,31 @@
+.encabezado-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.encabezado-panel h2 {
+  margin: 0;
+}
+
+.formulario-crear {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 18px;
+  align-items: end;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.acciones {
+  white-space: nowrap;
+}

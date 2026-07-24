@@ -1,0 +1,32 @@
+<h1>Consola de comandos</h1>
+<p>
+  Ejecute comandos equivalentes a las operaciones de administracion de cuentas. Escriba
+  <strong>help</strong> para ver la lista de comandos disponibles.
+</p>
+
+<div class="panel">
+  <div class="pantalla-consola">
+    @for (linea of historial(); track $index) {
+      <div class="linea">
+        <div class="entrada">&gt; {{ linea.comando }}</div>
+        <pre class="salida">{{ linea.salida }}</pre>
+      </div>
+    } @empty {
+      <p class="sin-historial">No se ha ejecutado ningun comando todavia.</p>
+    }
+  </div>
+
+  <form class="formulario-consola" (ngSubmit)="ejecutar()">
+    <input
+      name="comando"
+      type="text"
+      [(ngModel)]="comando"
+      placeholder="Ejemplo: disable-user alumno1"
+      [disabled]="ejecutando()"
+      autocomplete="off"
+    />
+    <button type="submit" [disabled]="ejecutando()">
+      {{ ejecutando() ? 'Ejecutando...' : 'Ejecutar' }}
+    </button>
+  </form>
+</div>

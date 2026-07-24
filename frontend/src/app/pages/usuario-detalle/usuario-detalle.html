@@ -1,0 +1,55 @@
+<a routerLink="/">Volver al panel principal</a>
+
+<h1>Detalle de usuario</h1>
+
+@if (cargando()) {
+  <p>Cargando informacion...</p>
+} @else if (noEncontrado()) {
+  <div class="mensaje error">El usuario solicitado no existe.</div>
+} @else if (usuario(); as u) {
+  @if (mensaje()) {
+    <div class="mensaje" [class.exito]="mensaje()!.tipo === 'exito'" [class.error]="mensaje()!.tipo === 'error'">
+      {{ mensaje()!.texto }}
+    </div>
+  }
+
+  <div class="panel">
+    <div class="fila-titulo">
+      <h2>{{ u.username }}</h2>
+      <span class="etiqueta-estado" [class.habilitado]="u.estado === 'habilitado'" [class.deshabilitado]="u.estado === 'deshabilitado'">
+        {{ u.estado === 'habilitado' ? 'Habilitado' : 'Deshabilitado' }}
+      </span>
+    </div>
+
+    <dl class="ficha">
+      <dt>Nombre completo</dt>
+      <dd>{{ u.nombre_completo }}</dd>
+
+      <dt>Fecha de creacion</dt>
+      <dd>{{ u.fecha_creacion | date: 'medium' }}</dd>
+
+      <dt>Ultimo inicio de sesion</dt>
+      <dd>{{ u.ultimo_login ? (u.ultimo_login | date: 'medium') : 'Nunca ha iniciado sesion' }}</dd>
+
+      <dt>Grupos</dt>
+      <dd>
+        @if (u.grupos.length > 0) {
+          {{ u.grupos.map(g => g.nombre).join(', ') }}
+        } @else {
+          Sin grupo asignado
+        }
+      </dd>
+
+      <dt>Requiere cambio de contrasena</dt>
+      <dd>{{ u.requiere_cambio_password ? 'Si' : 'No' }}</dd>
+    </dl>
+
+    <div class="acciones-detalle">
+      @if (u.estado === 'habilitado') {
+        <button class="secundario" (click)="cambiarEstado()">Deshabilitar cuenta</button>
+      } @else {
+        <button (click)="cambiarEstado()">Habilitar cuenta</button>
+      }
+    </div>
+  </div>
+}

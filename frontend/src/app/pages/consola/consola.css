@@ -1,0 +1,40 @@
+.pantalla-consola {
+  background-color: var(--color-primario);
+  color: #e6ecf7;
+  border-radius: 4px;
+  padding: 14px 16px;
+  min-height: 220px;
+  max-height: 420px;
+  overflow-y: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.linea {
+  margin-bottom: 10px;
+}
+
+.entrada {
+  color: #9fc0f2;
+  font-weight: 700;
+}
+
+.salida {
+  margin: 4px 0 0;
+  white-space: pre-wrap;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.sin-historial {
+  color: #9fb2d6;
+}
+
+.formulario-consola {
+  display: flex;
+  gap: 10px;
+}
+
+.formulario-consola input {
+  flex: 1;
+}

@@ -1,0 +1,31 @@
+.panel-angosto {
+  max-width: 420px;
+}
+
+.campo {
+  margin-bottom: 14px;
+}
+
+.resultado-acceso {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.resultado-acceso.exito {
+  background-color: #dcece1;
+  color: var(--color-exito);
+  border: 1px solid #b5d6c1;
+}
+
+.resultado-acceso.error {
+  background-color: #f3dde0;
+  color: var(--color-error);
+  border: 1px solid #e0b7bd;
+}
+
+.titulo-resultado {
+  font-weight: 700;
+  margin: 0 0 6px;
+}

@@ -1,0 +1,13 @@
+<header class="cabecera">
+  <div class="marca">Administracion de Cuentas de Usuario</div>
+  <nav class="navegacion">
+    <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{ exact: true }">Panel principal</a>
+    <a routerLink="/acceso" routerLinkActive="activo">Simulador de acceso</a>
+    <a routerLink="/bitacora" routerLinkActive="activo">Bitacora</a>
+    <a routerLink="/consola" routerLinkActive="activo">Consola de comandos</a>
+  </nav>
+</header>
+
+<main class="contenido">
+  <router-outlet />
+</main>
